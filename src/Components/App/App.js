@@ -13,9 +13,9 @@ class App extends Component {
       {name: 'name2', artist: 'artist2', album: 'album2', id: 'id2'},
       {name: 'name3', artist: 'artist3', album: 'album3', id: 'id3'}],
       playlistName: 'playlistName1',
-      playlistTracks: [{name: 'name1', artist: 'artist1', album: 'album1', id: 'id1'},
-      {name: 'name2', artist: 'artist2', album: 'album2', id: 'id2'},
-      {name: 'name3', artist: 'artist3', album: 'album3', id: 'id3'}]
+      playlistTracks: [{name: 'playlistName1', artist: 'playlistArtist1', album: 'playlistAlbum1', id: 'playlistId1'},
+      {name: 'playlistName2', artist: 'playlistArtist2', album: 'playlistAlbum2', id: 'playlistId2'},
+      {name: 'playlistName3', artist: 'playlistArtist3', album: 'playlistAlbum3', id: 'playlistId3'}]
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -23,8 +23,8 @@ class App extends Component {
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    if(this.state.tracks.find(savedTrack => savedTrack.id === track.id)) {
-      return;
+    if(tracks.find(savedTrack => savedTrack.id === track.id)) {
+      return
     }
 
     tracks.push(track);
