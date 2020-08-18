@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Spotify from '../../util/Spotify';
+
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
@@ -51,7 +53,9 @@ class App extends Component {
   }
 
   search(searchTerm) {
-    console.log(searchTerm);
+    Spotify.search(searchTerm).then(searchResults => {
+      this.setState({searchResults: searchResults});
+    })
   }
 
   render() {
